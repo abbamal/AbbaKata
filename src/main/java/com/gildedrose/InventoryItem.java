@@ -20,60 +20,60 @@ public class InventoryItem {
     
     public static void createType(Item item) {
         InventoryItem inventoryItem = new InventoryItem(item);
-        inventoryItem.updateDaily(item);
+        inventoryItem.updateDaily();
     }
-    protected void updateQualityItem(Item item) {
+    protected void updateQualityItem() {
         if (item.name.equals("Aged Brie")) {
-            this.encreaseQuality(item);
+            this.encreaseQuality();
         } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            this.encreaseQuality(item);
+            this.encreaseQuality();
             if (item.sellIn < 11) {
-                this.encreaseQuality(item);
+                this.encreaseQuality();
             }
             if (item.sellIn < 6) {
-                this.encreaseQuality(item);
+                this.encreaseQuality();
             }
         } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         } else {
-            this.decreaseQuality(item);
+            this.decreaseQuality();
         }
     }
 
-    protected void updateExpirationDays(Item item) {
+    protected void updateExpirationDays() {
         if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         }
         item.sellIn = item.sellIn - 1;
     }
 
-    protected void expirationProcess(Item item) {
+    protected void expirationProcess() {
         if (item.name.equals("Aged Brie")) {
-            this.encreaseQuality(item);
+            this.encreaseQuality();
         } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             item.quality = 0;
         } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         } else {
-            this.decreaseQuality(item);
+            this.decreaseQuality();
         }
     }
 
-    protected void updateDaily(Item item) {
-        this.updateQualityItem(item);
-        this.updateExpirationDays(item);
+    protected void updateDaily() {
+        this.updateQualityItem();
+        this.updateExpirationDays();
         if (item.sellIn < 0) {
-            this.expirationProcess(item);
+            this.expirationProcess();
         }
     }
     
-    protected void decreaseQuality(Item item) {
+    protected void decreaseQuality() {
         if (item.quality > 0) {
             item.quality = item.quality - 1;
         }
     }
 
-    protected void encreaseQuality(Item item) {
+    protected void encreaseQuality() {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
         }
