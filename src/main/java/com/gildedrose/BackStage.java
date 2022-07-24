@@ -10,5 +10,17 @@ public class BackStage extends InventoryItem {
     public BackStage(Item item) {
         super(item);
     }
+
+    @Override
+    protected void updateQualityItem() {
+            this.encreaseQuality();
+            if (item.sellIn < 11) {
+                this.encreaseQuality();
+            }
+            if (item.sellIn < 6) {
+                this.encreaseQuality();
+            }
+    }
+    
     
 }
