@@ -42,11 +42,9 @@ public class InventoryItem {
         }
     }    
     protected void updateQualityItem() {
-         if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            return;
-        } else {
+         
             this.decreaseQuality();
-        }
+        
     }
 
     protected void updateExpirationDays() {
