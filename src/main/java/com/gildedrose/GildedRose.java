@@ -40,9 +40,12 @@ class GildedRose {
     }
 
     public void updateExpirationDays(Item item) {
-        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            item.sellIn = item.sellIn - 1;
+        if(item.name.equals("Sulfuras, Hand of Ragnaros")){
+            return ;
         }
+        
+            item.sellIn = item.sellIn - 1;
+
     }
 
     public void updateQualityItem(Item item) {
