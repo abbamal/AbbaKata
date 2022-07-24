@@ -16,12 +16,26 @@ class GildedRoseTest {
     
     @Test 
     void standard_item_quality_decrease_sellin_decrease_every_day(){
-       Item standard = new Item("foo", 19, 6) ;
+       Item standard = new Item("standard", 19, 6) ;
        GildedRose gr = new GildedRose(new Item[]{standard});
        gr.updateQuality();
        assertEquals(standard.sellIn, 18);
        assertEquals(standard.quality, 5);
     
     }
+    @Test 
+    void multiple_items_degrade_every_day(){
+       Item firstStandard = new Item("firstStandard", 19, 6) ;
+       Item secondStandard = new Item("secondStandard", 15, 4) ;
+       GildedRose gr = new GildedRose(new Item[]{firstStandard,secondStandard});
+       gr.updateQuality();
+       
+       assertEquals(firstStandard.sellIn, 18);
+       assertEquals(firstStandard.quality, 5);
+       
+       assertEquals(secondStandard.sellIn, 14);
+       assertEquals(secondStandard.quality, 3);
+    
+    }    
 
 }
