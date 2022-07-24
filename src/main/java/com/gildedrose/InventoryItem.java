@@ -25,7 +25,7 @@ public class InventoryItem {
         else if (item.name.equals(BackStage.NAME)){
             return  new BackStage(item);
         }
-        else if (item.name.equals("Sulfuras, Hand of Ragnaros")){
+        else if (item.name.equals(Sulfuras.NAME)){
           return  new Sulfuras(item);
         }
         else if (item.name.equals("Conjured")){
