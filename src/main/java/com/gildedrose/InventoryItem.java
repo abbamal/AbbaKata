@@ -17,7 +17,7 @@ public class InventoryItem {
     }
 
 
-    
+    //this methode compare the given name and return the suitable type , Polymorphism (subclasses)
     public static InventoryItem createType(Item item) {
         switch (item.name) {
             case Aged.NAME:
@@ -35,7 +35,7 @@ public class InventoryItem {
         
     }
     
-
+    
     protected void updateDaily() {
         this.updateQualityItem();
         this.updateExpirationDays();
@@ -43,17 +43,21 @@ public class InventoryItem {
             this.expirationProcess();
         }
     }    
+    
+    //decrease  for Normal type , other types overrade the methode
     protected void updateQualityItem() {
          
             this.decreaseQuality();
         
     }
 
+    //decrease sellin days for every type except Sulfuras wich is overrade it
     protected void updateExpirationDays() {
 
         item.sellIn --;
     }
 
+    
     protected void expirationProcess() {
 
             this.decreaseQuality();

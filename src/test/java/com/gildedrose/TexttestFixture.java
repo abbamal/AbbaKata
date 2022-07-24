@@ -1,5 +1,5 @@
 package com.gildedrose;
-
+//TODO change the methode to combine all the possible cases , to be applied for a given Days and exract to external file  
 public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
