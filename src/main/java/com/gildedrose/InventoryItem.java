@@ -62,5 +62,13 @@ public class InventoryItem {
             this.decreaseQuality(item);
         }
     }
+
+    protected void updateDaily(Item item) {
+        this.updateQualityItem(item);
+        this.updateExpirationDays(item);
+        if (item.sellIn < 0) {
+            this.expirationProcess(item);
+        }
+    }
     
 }
