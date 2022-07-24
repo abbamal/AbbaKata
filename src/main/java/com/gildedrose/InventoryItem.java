@@ -25,6 +25,9 @@ public class InventoryItem {
         else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")){
             return  new BackStage(item);
         }
+        else if (item.name.equals("Sulfuras, Hand of Ragnaros")){
+          return  new Sulfuras(item);
+        }
         else 
         return new InventoryItem(item);
          
