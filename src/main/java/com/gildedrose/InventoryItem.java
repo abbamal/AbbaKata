@@ -48,9 +48,7 @@ public class InventoryItem {
     }
 
     protected void updateExpirationDays() {
-        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            return;
-        }
+
         item.sellIn = item.sellIn - 1;
     }
 

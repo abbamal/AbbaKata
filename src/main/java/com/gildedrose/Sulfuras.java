@@ -15,5 +15,12 @@ public class Sulfuras extends InventoryItem {
        
     }
 
+    @Override
+    protected void updateExpirationDays() {
+        
+    }
+    
+    
+
     
 }
