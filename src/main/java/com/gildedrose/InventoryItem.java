@@ -18,9 +18,10 @@ public class InventoryItem {
 
 
     
-    public static void createType(Item item) {
-        InventoryItem inventoryItem = new InventoryItem(item);
-        inventoryItem.updateDaily();
+    public static InventoryItem createType(Item item) {
+        
+         return  new InventoryItem(item);
+        
     }
     protected void updateQualityItem() {
         if (item.name.equals("Aged Brie")) {
