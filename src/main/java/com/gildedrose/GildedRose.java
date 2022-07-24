@@ -9,10 +9,14 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            updateQualityItem(item);
-            updateExpirationDays(item);
-            expirationProcess(item);
+            updateDaily(item);
         }
+    }
+
+    public void updateDaily(Item item) {
+        updateQualityItem(item);
+        updateExpirationDays(item);
+        expirationProcess(item);
     }
 
     public void expirationProcess(Item item) {
