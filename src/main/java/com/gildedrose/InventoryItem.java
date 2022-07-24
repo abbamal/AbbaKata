@@ -49,9 +49,7 @@ public class InventoryItem {
     }
 
     protected void expirationProcess() {
-        if (item.name.equals("Aged Brie")) {
-            this.encreaseQuality();
-        } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+        if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             item.quality = 0;
         } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;

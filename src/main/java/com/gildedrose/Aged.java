@@ -15,6 +15,13 @@ public class Aged extends InventoryItem {
     protected void updateQualityItem() {
         this.encreaseQuality();
     }
+
+    @Override
+    protected void expirationProcess() {
+        this.encreaseQuality();
+    }
+
+    
     
     
 }
