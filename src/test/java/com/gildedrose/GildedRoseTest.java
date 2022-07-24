@@ -46,6 +46,16 @@ class GildedRoseTest {
        assertEquals(standard.sellIn, -2);
        assertEquals(standard.quality, 4);
     
-    }    
+    }  
+    
+    @Test 
+    void item_quality_is_never_negative(){
+       Item standard = new Item("standard", 5, 0) ;
+       GildedRose gr = new GildedRose(new Item[]{standard});
+       gr.updateQuality();
+       assertEquals(standard.sellIn, 4);
+       assertEquals(standard.quality,0);
+    
+    }     
 
 }
