@@ -1,2 +1,2 @@
 # AbbaKata
-a technical challenge to integrate the company Wemanity
+a technical challenge to integrate Wemanity
