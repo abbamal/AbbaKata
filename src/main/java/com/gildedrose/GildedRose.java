@@ -9,8 +9,7 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-             InventoryItem inventoryItem = new InventoryItem(item);
-             inventoryItem.updateDaily(item);
+             InventoryItem.createType(item);
         }
     }
 

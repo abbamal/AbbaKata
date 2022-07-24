@@ -9,23 +9,19 @@ package com.gildedrose;
  * @author abba
  */
 public class InventoryItem {
+
+
     private Item item ;
     public InventoryItem(Item item) {
         this.item = item ;
     }
 
-    protected void decreaseQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
-        }
-    }
 
-    protected void encreaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
-        }
+    
+    public static void createType(Item item) {
+        InventoryItem inventoryItem = new InventoryItem(item);
+        inventoryItem.updateDaily(item);
     }
-
     protected void updateQualityItem(Item item) {
         if (item.name.equals("Aged Brie")) {
             this.encreaseQuality(item);
@@ -70,5 +66,17 @@ public class InventoryItem {
             this.expirationProcess(item);
         }
     }
+    
+    protected void decreaseQuality(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
+    }
+
+    protected void encreaseQuality(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+    }    
     
 }
