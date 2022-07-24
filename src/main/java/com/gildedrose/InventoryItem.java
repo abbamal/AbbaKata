@@ -53,11 +53,8 @@ public class InventoryItem {
     }
 
     protected void expirationProcess() {
-        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            return;
-        } else {
+
             this.decreaseQuality();
-        }
     }
 
 
