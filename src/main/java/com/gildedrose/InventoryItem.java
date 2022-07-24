@@ -19,20 +19,18 @@ public class InventoryItem {
 
     
     public static InventoryItem createType(Item item) {
-        if(item.name.equals(Aged.NAME)){
-            return  new Aged(item);
+        switch (item.name) {
+            case Aged.NAME:
+                return  new Aged(item);
+            case BackStage.NAME:
+                return  new BackStage(item);
+            case Sulfuras.NAME:
+                return  new Sulfuras(item);
+            case Conjured.NAME:
+                return  new Conjured(item);
+            default:
+                return new InventoryItem(item);
         }
-        else if (item.name.equals(BackStage.NAME)){
-            return  new BackStage(item);
-        }
-        else if (item.name.equals(Sulfuras.NAME)){
-          return  new Sulfuras(item);
-        }
-        else if (item.name.equals(Conjured.NAME)){
-          return  new Conjured(item);
-        }        
-        else 
-        return new InventoryItem(item);
          
         
     }
