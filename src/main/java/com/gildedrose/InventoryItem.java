@@ -28,7 +28,7 @@ public class InventoryItem {
         else if (item.name.equals(Sulfuras.NAME)){
           return  new Sulfuras(item);
         }
-        else if (item.name.equals("Conjured")){
+        else if (item.name.equals(Conjured.NAME)){
           return  new Conjured(item);
         }        
         else 
