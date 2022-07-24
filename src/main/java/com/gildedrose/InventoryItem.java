@@ -17,23 +17,25 @@ public class InventoryItem {
     }
 
 
-    
+    //this methode compare the given name and return the suitable type , Polymorphism (subclasses)
     public static InventoryItem createType(Item item) {
-        if(item.name.equals("Aged Brie")){
-            return  new Aged(item);
+        switch (item.name) {
+            case Aged.NAME:
+                return  new Aged(item);
+            case BackStage.NAME:
+                return  new BackStage(item);
+            case Sulfuras.NAME:
+                return  new Sulfuras(item);
+            case Conjured.NAME:
+                return  new Conjured(item);
+            default:
+                return new InventoryItem(item);
         }
-        else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")){
-            return  new BackStage(item);
-        }
-        else if (item.name.equals("Sulfuras, Hand of Ragnaros")){
-          return  new Sulfuras(item);
-        }
-        else 
-        return new InventoryItem(item);
          
         
     }
-
+    
+    
     protected void updateDaily() {
         this.updateQualityItem();
         this.updateExpirationDays();
@@ -41,17 +43,21 @@ public class InventoryItem {
             this.expirationProcess();
         }
     }    
+    
+    //decrease  for Normal type , other types overrade the methode
     protected void updateQualityItem() {
          
             this.decreaseQuality();
         
     }
 
+    //decrease sellin days for every type except Sulfuras wich is overrade it
     protected void updateExpirationDays() {
 
-        item.sellIn = item.sellIn - 1;
+        item.sellIn --;
     }
 
+    
     protected void expirationProcess() {
 
             this.decreaseQuality();
@@ -61,13 +67,13 @@ public class InventoryItem {
     
     protected void decreaseQuality() {
         if (item.quality > 0) {
-            item.quality = item.quality - 1;
+            item.quality --;
         }
     }
 
     protected void encreaseQuality() {
         if (item.quality < 50) {
-            item.quality = item.quality + 1;
+            item.quality ++;
         }
     }    
     

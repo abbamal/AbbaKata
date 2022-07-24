@@ -136,5 +136,34 @@ class GildedRoseTest {
        assertEquals(sulfurasItem.quality,80);
     
     }      
+
+    @Test 
+    void conjured_decrease_in_quality_twice_fast(){
+       Item conjuredItem = new Item("Conjured", 10,30) ;
+       GildedRose gr = new GildedRose(new Item[]{conjuredItem});
+       gr.updateQuality();
+       assertEquals(conjuredItem.sellIn, 9);
+       assertEquals(conjuredItem.quality,28);
     
+    }    
+
+    @Test 
+    void conjured_decrease_in_quality_by_4_if_sellin_expired(){
+       Item conjuredItem = new Item("Conjured", 0,30) ;
+       GildedRose gr = new GildedRose(new Item[]{conjuredItem});
+       gr.updateQuality();
+       assertEquals(conjuredItem.sellIn, -1);
+       assertEquals(conjuredItem.quality,26);
+    
+    } 
+
+    @Test 
+    void conjured_quality_is_never_negative(){
+       Item conjuredItem = new Item("Conjured", 10,0) ;
+       GildedRose gr = new GildedRose(new Item[]{conjuredItem});
+       gr.updateQuality();
+       assertEquals(conjuredItem.sellIn, 9);
+       assertEquals(conjuredItem.quality,0);
+    
+    }        
 }
