@@ -52,7 +52,7 @@ public class InventoryItem {
 
     protected void updateExpirationDays() {
 
-        item.sellIn = item.sellIn - 1;
+        item.sellIn --;
     }
 
     protected void expirationProcess() {
@@ -64,13 +64,13 @@ public class InventoryItem {
     
     protected void decreaseQuality() {
         if (item.quality > 0) {
-            item.quality = item.quality - 1;
+            item.quality --;
         }
     }
 
     protected void encreaseQuality() {
         if (item.quality < 50) {
-            item.quality = item.quality + 1;
+            item.quality ++;
         }
     }    
     
