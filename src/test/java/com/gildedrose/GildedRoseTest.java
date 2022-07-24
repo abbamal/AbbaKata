@@ -136,5 +136,14 @@ class GildedRoseTest {
        assertEquals(sulfurasItem.quality,80);
     
     }      
+
+    @Test 
+    void conjured_decrease_in_quality_twice_fast(){
+       Item conjuredItem = new Item("Conjured", 10,30) ;
+       GildedRose gr = new GildedRose(new Item[]{conjuredItem});
+       gr.updateQuality();
+       assertEquals(conjuredItem.sellIn, 9);
+       assertEquals(conjuredItem.quality,28);
     
+    }      
 }
