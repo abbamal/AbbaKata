@@ -36,6 +36,16 @@ class GildedRoseTest {
        assertEquals(secondStandard.sellIn, 14);
        assertEquals(secondStandard.quality, 3);
     
+    }
+
+    @Test 
+    void item_quality_derades_twice_if_sellin_date_expires(){
+       Item standard = new Item("standard", -1, 6) ;
+       GildedRose gr = new GildedRose(new Item[]{standard});
+       gr.updateQuality();
+       assertEquals(standard.sellIn, -2);
+       assertEquals(standard.quality, 4);
+    
     }    
 
 }
