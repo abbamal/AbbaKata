@@ -21,6 +21,13 @@ public class BackStage extends InventoryItem {
                 this.encreaseQuality();
             }
     }
+
+    @Override
+    protected void expirationProcess() {
+        item.quality = 0;
+    }
+    
+    
     
     
 }

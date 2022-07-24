@@ -30,16 +30,16 @@ public class InventoryItem {
          
         
     }
+
+    protected void updateDaily() {
+        this.updateQualityItem();
+        this.updateExpirationDays();
+        if (item.sellIn < 0) {
+            this.expirationProcess();
+        }
+    }    
     protected void updateQualityItem() {
-         if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            this.encreaseQuality();
-            if (item.sellIn < 11) {
-                this.encreaseQuality();
-            }
-            if (item.sellIn < 6) {
-                this.encreaseQuality();
-            }
-        } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+         if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         } else {
             this.decreaseQuality();
@@ -54,22 +54,14 @@ public class InventoryItem {
     }
 
     protected void expirationProcess() {
-        if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            item.quality = 0;
-        } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         } else {
             this.decreaseQuality();
         }
     }
 
-    protected void updateDaily() {
-        this.updateQualityItem();
-        this.updateExpirationDays();
-        if (item.sellIn < 0) {
-            this.expirationProcess();
-        }
-    }
+
     
     protected void decreaseQuality() {
         if (item.quality > 0) {
