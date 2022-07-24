@@ -19,7 +19,9 @@ public class InventoryItem {
 
     
     public static InventoryItem createType(Item item) {
-        
+        if(item.name.equals("Aged Brie")){
+        return  new Aged(item);
+        }
          return  new InventoryItem(item);
         
     }
