@@ -28,6 +28,9 @@ public class InventoryItem {
         else if (item.name.equals("Sulfuras, Hand of Ragnaros")){
           return  new Sulfuras(item);
         }
+        else if (item.name.equals("Conjured")){
+          return  new Conjured(item);
+        }        
         else 
         return new InventoryItem(item);
          
