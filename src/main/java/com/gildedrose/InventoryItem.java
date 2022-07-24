@@ -26,9 +26,7 @@ public class InventoryItem {
         
     }
     protected void updateQualityItem() {
-        if (item.name.equals("Aged Brie")) {
-            this.encreaseQuality();
-        } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+         if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             this.encreaseQuality();
             if (item.sellIn < 11) {
                 this.encreaseQuality();

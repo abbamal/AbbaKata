@@ -10,5 +10,11 @@ public class Aged extends InventoryItem {
     public Aged(Item item) {
         super(item);
     }
+
+    @Override
+    protected void updateQualityItem() {
+        this.encreaseQuality();
+    }
+    
     
 }
