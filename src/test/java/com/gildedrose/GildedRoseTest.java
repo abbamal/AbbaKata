@@ -145,5 +145,15 @@ class GildedRoseTest {
        assertEquals(conjuredItem.sellIn, 9);
        assertEquals(conjuredItem.quality,28);
     
+    }    
+
+    @Test 
+    void conjured_decrease_in_quality_by_4_if_sellin_expired(){
+       Item conjuredItem = new Item("Conjured", 0,30) ;
+       GildedRose gr = new GildedRose(new Item[]{conjuredItem});
+       gr.updateQuality();
+       assertEquals(conjuredItem.sellIn, -1);
+       assertEquals(conjuredItem.quality,26);
+    
     }      
 }
