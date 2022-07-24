@@ -85,6 +85,46 @@ class GildedRoseTest {
        assertEquals(agedItem.sellIn, -2);
        assertEquals(agedItem.quality,50);
     
+    } 
+
+    @Test 
+    void backstage_increase_in_quality_as_sellin_date_approch(){
+       Item backstageItem = new Item("Backstage passes to a TAFKAL80ETC concert", 13,30) ;
+       GildedRose gr = new GildedRose(new Item[]{backstageItem});
+       gr.updateQuality();
+       assertEquals(backstageItem.sellIn, 12);
+       assertEquals(backstageItem.quality,31);
+    
+    }  
+
+    @Test 
+    void backstage_increase_in_quality_twice_when_there_are_10_days_or_less(){
+       Item backstageItem = new Item("Backstage passes to a TAFKAL80ETC concert", 10,30) ;
+       GildedRose gr = new GildedRose(new Item[]{backstageItem});
+       gr.updateQuality();
+       assertEquals(backstageItem.sellIn, 9);
+       assertEquals(backstageItem.quality,32);
+    
+    }  
+    
+    @Test 
+    void backstage_increase_in_quality_by_3_when_there_are_5_days_or_less(){
+       Item backstageItem = new Item("Backstage passes to a TAFKAL80ETC concert", 5,30) ;
+       GildedRose gr = new GildedRose(new Item[]{backstageItem});
+       gr.updateQuality();
+       assertEquals(backstageItem.sellIn, 4);
+       assertEquals(backstageItem.quality,33);
+    
+    } 
+    
+    @Test 
+    void backstage_quality_is_0_after_concert(){
+       Item backstageItem = new Item("Backstage passes to a TAFKAL80ETC concert", 0,30) ;
+       GildedRose gr = new GildedRose(new Item[]{backstageItem});
+       gr.updateQuality();
+       assertEquals(backstageItem.sellIn, -1);
+       assertEquals(backstageItem.quality,0);
+    
     }      
     
 }
