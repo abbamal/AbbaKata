@@ -20,9 +20,14 @@ public class InventoryItem {
     
     public static InventoryItem createType(Item item) {
         if(item.name.equals("Aged Brie")){
-        return  new Aged(item);
+            return  new Aged(item);
         }
-         return  new InventoryItem(item);
+        else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")){
+            return  new BackStage(item);
+        }
+        else 
+        return new InventoryItem(item);
+         
         
     }
     protected void updateQualityItem() {
