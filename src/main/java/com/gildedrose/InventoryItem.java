@@ -22,7 +22,7 @@ public class InventoryItem {
         if(item.name.equals(Aged.NAME)){
             return  new Aged(item);
         }
-        else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")){
+        else if (item.name.equals(BackStage.NAME)){
             return  new BackStage(item);
         }
         else if (item.name.equals("Sulfuras, Hand of Ragnaros")){

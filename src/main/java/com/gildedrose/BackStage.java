@@ -6,7 +6,7 @@ package com.gildedrose;
 
 
 public class BackStage extends InventoryItem {
-
+    public static final String NAME = "Backstage passes to a TAFKAL80ETC concert";
     public BackStage(Item item) {
         super(item);
     }
