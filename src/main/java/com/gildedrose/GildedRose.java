@@ -35,18 +35,14 @@ class GildedRose {
                        return ;
                     }
             else {
-                    if (item.quality > 0) {
-                        item.quality = item.quality - 1;    
-                        }
+            decreaseQuality(item);
                 }    
         
     }
 
-    public void encreaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
-        }
-    }
+
+
+
 
     public void updateExpirationDays(Item item) {
         if(item.name.equals("Sulfuras, Hand of Ragnaros")){
@@ -76,10 +72,18 @@ class GildedRose {
           return;
         }
         else {
-            if (item.quality > 0) {  
-                    item.quality = item.quality - 1;
-            }
+            decreaseQuality(item);
         }
     }
 
+    public void encreaseQuality(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+    }
+    public void decreaseQuality(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
+    }    
 }
