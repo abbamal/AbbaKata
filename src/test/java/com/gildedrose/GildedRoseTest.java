@@ -125,6 +125,16 @@ class GildedRoseTest {
        assertEquals(backstageItem.sellIn, -1);
        assertEquals(backstageItem.quality,0);
     
+    }   
+    
+    @Test 
+    void sulfuras_never_have_to_be_sold_or_decrease_in_quality(){
+       Item sulfurasItem = new Item("Sulfuras, Hand of Ragnaros", -1,80) ;
+       GildedRose gr = new GildedRose(new Item[]{sulfurasItem});
+       gr.updateQuality();
+       assertEquals(sulfurasItem.sellIn, -1);
+       assertEquals(sulfurasItem.quality,80);
+    
     }      
     
 }
