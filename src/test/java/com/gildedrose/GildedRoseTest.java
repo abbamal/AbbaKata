@@ -56,6 +56,35 @@ class GildedRoseTest {
        assertEquals(standard.sellIn, 4);
        assertEquals(standard.quality,0);
     
-    }     
+    } 
 
+    @Test 
+    void aged_increase_in_quality_over_time(){
+       Item agedItem = new Item("Aged Brie", 18,8) ;
+       GildedRose gr = new GildedRose(new Item[]{agedItem});
+       gr.updateQuality();
+       assertEquals(agedItem.sellIn, 17);
+       assertEquals(agedItem.quality,9);
+    
+    }      
+
+    @Test 
+    void aged_increase_in_quality_twice_if_sellin_expired(){
+       Item agedItem = new Item("Aged Brie", -1,8) ;
+       GildedRose gr = new GildedRose(new Item[]{agedItem});
+       gr.updateQuality();
+       assertEquals(agedItem.sellIn, -2);
+       assertEquals(agedItem.quality,10);
+    
+    }   
+    @Test 
+    void quality_never_greater_then_50(){
+       Item agedItem = new Item("Aged Brie", -1,50) ;
+       GildedRose gr = new GildedRose(new Item[]{agedItem});
+       gr.updateQuality();
+       assertEquals(agedItem.sellIn, -2);
+       assertEquals(agedItem.quality,50);
+    
+    }      
+    
 }
